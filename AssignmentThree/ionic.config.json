@@ -1,0 +1,7 @@
+{
+  "name": "AssignmentThree",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

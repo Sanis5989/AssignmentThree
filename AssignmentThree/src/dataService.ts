@@ -4,6 +4,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Artist } from './Artist';
 
+// Enums for artist class
+enum Gender {
+  Female = 'Female',
+  Male = 'Male',
+  Unspecified = 'Unspecified',
+}
+
+enum ArtworkType {
+  Painting = 'painting',
+  Sculpture = 'sculpture',
+  Photograph = 'photograph',
+  VideoArt = 'video art',
+  DigitalArt = 'digital art',
+  Printmaking = 'printmaking',
+}
+
 @Injectable()
 export class DataService {
   constructor(private http: HttpClient) {}
@@ -13,5 +29,25 @@ export class DataService {
   //get request on api
   public getAllArtists(): Observable<Artist> {
     return this.http.get<Artist>(this.url);
+  }
+
+  addArtist(
+    name: string,
+    dob: Date,
+    gender: Gender,
+    artworkType: ArtworkType,
+    contactInfo: string,
+    exhibitionDate: Date,
+    isFeaturedArtist: number
+  ): Observable<Artist> {
+    return this.http.post<Artist>(this.url, {
+      name: name,
+      dob: dob,
+      gender: gender,
+      artwork_type: artworkType,
+      contact_info: contactInfo,
+      exhibition_date: exhibitionDate,
+      is_featured_artist: isFeaturedArtist,
+    });
   }
 }

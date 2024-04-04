@@ -19,6 +19,10 @@ const routes: Routes = [
         path: 'tab3',
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
+
+     {
+      path: 'add-artist', loadChildren: () => import('../add-artist/add-artist.module').then(m => m.AddArtistPageModule)
+     },
       {
         path: '',
         redirectTo: '/tabs/tab1',

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Artist } from 'src/Artist';
 
 import { DataService } from 'src/dataService';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',

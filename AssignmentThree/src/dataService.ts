@@ -38,7 +38,8 @@ export class DataService {
     artworkType: ArtworkType,
     contactInfo: string,
     exhibitionDate: Date,
-    isFeaturedArtist: number
+    specialNotes: string,
+    isFeaturedArtist: number,
   ): Observable<Artist> {
     return this.http.post<Artist>(this.url, {
       name: name,
@@ -47,6 +48,7 @@ export class DataService {
       artwork_type: artworkType,
       contact_info: contactInfo,
       exhibition_date: exhibitionDate,
+      special_notes: specialNotes,
       is_featured_artist: isFeaturedArtist,
     });
   }

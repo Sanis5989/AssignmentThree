@@ -109,12 +109,24 @@
         >
       </ion-item>
       <ion-item class="ion-margin-bottom">
+        <ion-textarea label="Special Notes" labelPlacement="floating" formControlName="specialNotes" placeholder="Any Special Notes"></ion-textarea>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
         <ion-checkbox
-          formControlName="isFeaturedArtist"
-          slot="start"
-          (ionChange)="updateCheckboxValue($event)"
-          >Featured Artist?
-        </ion-checkbox>
+        formControlName="isFeaturedArtist"
+        slot="start"
+        value="featured"
+        (ionChange)="updateCheckboxValue($event, 'featured')"
+      >Featured Artist?
+      </ion-checkbox>
+      <ion-checkbox
+        formControlName="isRegularArtist"
+        slot="start"
+        value="regular"
+        (ionChange)="updateCheckboxValue($event, 'regular')"
+      >Regular Artist
+      </ion-checkbox>
+      
       </ion-item>
     </ion-list>
     <ion-button

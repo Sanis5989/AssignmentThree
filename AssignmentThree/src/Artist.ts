@@ -21,6 +21,7 @@ export class Artist {
   artwork_type: ArtworkType;
   contact_info: string;
   exhibition_date: Date;
+  special_notes : string;
   is_featured_artist: number;
 
   constructor(
@@ -31,7 +32,8 @@ export class Artist {
     artwork_type: ArtworkType,
     contact_info: string,
     exhibition_date: Date,
-    is_featured_artist: number
+    special_notes : string,
+    is_featured_artist: number,
   ) {
     this.artist_id = artist_id;
     this.name = name;
@@ -40,6 +42,7 @@ export class Artist {
     this.artwork_type = artwork_type;
     this.contact_info = contact_info;
     this.exhibition_date = exhibition_date;
+    this.special_notes = special_notes;
     this.is_featured_artist = is_featured_artist;
   }
 }

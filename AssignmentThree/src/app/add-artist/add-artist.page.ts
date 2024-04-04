@@ -13,14 +13,17 @@ export class AddArtistPage implements OnInit {
   id: number = 0;
   newArtist!: Artist;
   isFeaturedArtist: boolean = false;
+  isRegularArtist: boolean = false;
   constructor(private dataService: DataService) {}
 
-  //function to get the updated featured artist input field
-  updateCheckboxValue(event: any) {
-    // Update the value of isFeaturedArtist based on checkbox state
-    this.isFeaturedArtist = event.detail.checked ? true : false;
+  // //function to get the updated featured artist or regular artist input field
+  updateCheckboxValue(event: any, checkboxType: string) {
+    if (checkboxType === 'featured') {
+      this.formData.get('isRegularArtist')?.setValue(false);
+    } else if (checkboxType === 'regular') {
+      this.formData.get('isFeaturedArtist')?.setValue(false);
+    }
   }
-
   ngOnInit() {
     this.formData = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -29,7 +32,9 @@ export class AddArtistPage implements OnInit {
       artWorkType: new FormControl('', Validators.required),
       contactInfo: new FormControl('', Validators.required),
       exhibitionDate: new FormControl('', Validators.required),
-      isFeaturedArtist: new FormControl(''),
+      specialNotes: new FormControl(''),
+      isFeaturedArtist: new FormControl(false),
+      isRegularArtist: new FormControl(true),
     });
   }
 
@@ -38,6 +43,7 @@ export class AddArtistPage implements OnInit {
     this.addArtist();
   }
 
+  
   addArtist() {
     if (this.formData.valid) {
       // this.newArtist = new Artist(
@@ -51,6 +57,7 @@ export class AddArtistPage implements OnInit {
       //   this.formData.value.isFeaturedArtist
       // );
       // console.log(this.newArtist);
+      
       this.dataService
         .addArtist(
           this.formData.value.name,
@@ -59,12 +66,13 @@ export class AddArtistPage implements OnInit {
           this.formData.value.artWorkType,
           this.formData.value.contactInfo,
           this.formData.value.exhibitionDate,
+          this.formData.value.specialNotes,
           this.formData.value.isFeaturedArtist
+        
         )
         .subscribe(
           (d: any) => {
             alert('Artist has been added to the database.');
-            window.location.reload();
           },
           (err: any) => {
             alert('err');

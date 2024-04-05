@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-tab-button tab="add-artist" href="/tabs/add-artist" >
+      <ion-icon aria-hidden="true" name="person-add-sharp"></ion-icon>
+      <ion-label style="color: hsl(103, 50%, 50%);">Add Artists</ion-label>
+    </ion-tab-button>
+  </ion-toolbar>
+  <ion-toolbar>
+  <ion-tab-button tab="update-artists" href="/tabs/update-artists">
+    <ion-icon aria-hidden="true" name="hammer-sharp"></ion-icon>
+    <ion-label style="color: hsl(64, 77%, 60%);">Update Artists</ion-label>
+  </ion-tab-button>
+  </ion-toolbar>
+  <ion-toolbar>
+  <ion-tab-button tab="delete-artists" href="/tabs/delete-artists">
+    <ion-icon aria-hidden="true" name="trash-sharp"></ion-icon>
+    <ion-label style="color: hsl(0, 100%, 50%);">Delete Artists</ion-label>
+  </ion-tab-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">updateArtists</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>

@@ -31,6 +31,12 @@ export class DataService {
     return this.http.get<Artist>(this.url);
   }
 
+  public deleteArtist(artistName: string): Observable <Artist> {
+    const url = `${this.url}/${artistName}`;
+    return this.http.delete<Artist>(url);
+  }
+
+  
   addArtist(
     name: string,
     dob: Date,

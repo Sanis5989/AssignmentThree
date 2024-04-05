@@ -1,13 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>displayFeaturedArtists</ion-title>
+    <ion-tab-button tab="display-artists" href="/tabs/display-artists">
+      <ion-icon aria-hidden="true" name="albums-outline"></ion-icon>
+      <ion-label style="color: hsl(261, 50%, 50%);">Display Artists</ion-label>
+    </ion-tab-button>
+  </ion-toolbar>
+  <ion-toolbar>
+  <ion-tab-button tab="display-featured-artists" href="/tabs/display-featured-artists">
+    <ion-icon aria-hidden="true" name="copy-outline"></ion-icon>
+    <ion-label style="color: hsla(175, 84%, 45%, 0.836);">Display Featured Artists</ion-label>
+  </ion-tab-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">displayFeaturedArtists</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ 
+  
 </ion-content>

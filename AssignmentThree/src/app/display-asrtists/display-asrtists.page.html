@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-tab-button tab="display-artists" href="/tabs/display-artists">
+    <ion-tab-button tab="display-artists" href="/tabs/display-artists" >
       <ion-icon aria-hidden="true" name="albums-outline"></ion-icon>
       <ion-label style="color: hsl(261, 50%, 50%);">Display Artists</ion-label>
     </ion-tab-button>
@@ -14,12 +14,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-
-  </ion-header>
   
-  
-
+<ion-button type="submit"
+expand="block"
+(click)="loadArtists()"
+class="ion-margin-top"
+>Display Artists</ion-button
+>
   <table class="custom-table">
     <thead>
       <tr>

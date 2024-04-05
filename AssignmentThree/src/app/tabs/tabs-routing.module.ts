@@ -49,6 +49,14 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'update-artists',
+        loadChildren: () => import('../update-artists/update-artists.module').then((m)=> m.UpdateArtistsPageModule)
+      },
+      {
+        path: 'delete-artists',
+        loadChildren: () => import('../delete-artists/delete-artists.module').then((m)=> m.DeleteArtistsPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full',

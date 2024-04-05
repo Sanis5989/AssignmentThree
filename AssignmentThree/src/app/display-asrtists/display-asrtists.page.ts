@@ -13,7 +13,7 @@ export class DisplayAsrtistsPage implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.loadArtists();
+   
   }
 //function to get artists from api and assign it to the empty artists array.
   loadArtists(): void {
@@ -33,5 +33,7 @@ export class DisplayAsrtistsPage implements OnInit {
       }
     );
   }
+
+
 }
 

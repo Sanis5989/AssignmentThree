@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-tab-button tab="display-artists" href="/tabs/display-artists">
+      <ion-icon aria-hidden="true" name="albums-outline"></ion-icon>
+      <ion-label style="color: hsl(261, 50%, 50%);">Display Artists</ion-label>
+    </ion-tab-button>
+  </ion-toolbar>
+  <ion-toolbar>
+  <ion-tab-button tab="display-featured-artists" href="/tabs/display-featured-artists">
+    <ion-icon aria-hidden="true" name="copy-outline"></ion-icon>
+    <ion-label style="color: hsla(175, 84%, 45%, 0.836);">Display Featured Artists</ion-label>
+  </ion-tab-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+
+  </ion-header>
+  
+  
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th class="header-cell">Id</th>
+        <th class="header-cell">Name</th>
+        <th class="header-cell">Date of Birth</th>
+        <th class="header-cell">Gender</th>
+        <th class="header-cell">Artwork Type</th>
+        <th class="header-cell">Contact Info</th>
+        <th class="header-cell">Exhibition Date</th>
+        <th class="header-cell">Special Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let artist of artists" class="data-row">
+        <td class="data-cell" data-label="Id">{{ artist.artist_id }}</td>
+        <td class="data-cell" data-label="Name">{{ artist.name }}</td>
+        <td class="data-cell" data-label="DOB">{{ artist.dob | date }}</td>
+        <td class="data-cell" data-label="Gender">{{ artist.gender }}</td>
+        <td class="data-cell" data-label="ArtWorkType">{{ artist.artwork_type }}</td>
+        <td class="data-cell" data-label="Contact">{{ artist.contact_info }}</td>
+        <td class="data-cell" data-label="ExhibitionDate">{{ artist.exhibition_date | date }}</td>
+        <td class="data-cell" data-label="SpecialNotes">{{ artist.special_notes || "-"}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  
+  
+
+
+</ion-content>

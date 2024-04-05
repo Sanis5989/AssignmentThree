@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     DataService,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent],
 })

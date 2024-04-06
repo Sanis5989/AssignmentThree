@@ -5,3 +5,25 @@ ion-header{
 h1, p {
     text-align: center;
 }
+
+ion-modal {
+    --height: 30%;
+    --border-radius: 12px;
+    --box-shadow: 0 10px 15px -3px hsla(0, 0%, 0%, 0.274), 0 4px 6px -4px hsla(0, 0%, 0%, 0.274);
+  }
+  
+  ion-modal::part(backdrop) {
+    background: hsl(0, 0%, 100%);
+    opacity: 1;
+  }
+  
+  ion-modal ion-toolbar {
+    --background: hsl(276, 82%, 49%);
+    --color: hsl(0, 0%, 100%);
+  }
+
+  .dialogbtn{
+    background-color: hsl(276, 82%, 49%);
+    color: hsl(0, 0%, 100%);
+    border-radius: 5px;
+  }

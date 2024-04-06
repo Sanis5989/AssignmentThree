@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Artist } from 'src/Artist';
 import { DataService } from 'src/dataService';
+import { __awaiter } from 'tslib';
 
 @Component({
   selector: 'app-add-artist',
@@ -14,6 +15,11 @@ export class AddArtistPage implements OnInit {
   newArtist!: Artist;
   isFeaturedArtist: boolean = false;
   isRegularArtist: boolean = false;
+
+  async canDismiss(data?: any, role?: string){
+        return role !== 'gesture';
+  }
+
   constructor(private dataService: DataService) {}
 
   // //function to get the updated featured artist or regular artist input field
@@ -46,19 +52,9 @@ export class AddArtistPage implements OnInit {
   
   addArtist() {
     if (this.formData.valid) {
-      // this.newArtist = new Artist(
-      //   this.id++,
-      //   this.formData.value.name,
-      //   this.formData.value.dob,
-      //   this.formData.value.gender,
-      //   this.formData.value.artWorkType,
-      //   this.formData.value.contactInfo,
-      //   this.formData.value.exhibitionDate,
-      //   this.formData.value.isFeaturedArtist
-      // );
-      // console.log(this.newArtist);
+  
       
-      this.dataService
+       this.dataService
         .addArtist(
           this.formData.value.name,
           this.formData.value.dob,
@@ -71,8 +67,8 @@ export class AddArtistPage implements OnInit {
         
         )
         .subscribe(
-          (d: any) => {
-            alert('Artist has been added to the database.');
+          () => {
+                
           },
           (err: any) => {
             alert('err');
@@ -82,5 +78,10 @@ export class AddArtistPage implements OnInit {
     } else {
       console.log('Form data is invalid');
     }
+  }
+
+  //reset form data
+  resetData(){
+    this.formData.reset();
   }
 }

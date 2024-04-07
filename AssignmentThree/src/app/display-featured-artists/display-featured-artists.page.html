@@ -14,6 +14,45 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
- 
+  
+<ion-button type="submit"
+size="large"
+expand="block"
+(click)="loadFeaturedArtists()"
+class="ion-margin-top"
+>
+<ion-icon slot="start" name="copy-outline"></ion-icon>
+Display Featured Artists</ion-button
+>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th class="header-cell">Id</th>
+        <th class="header-cell">Name</th>
+        <th class="header-cell">Date of Birth</th>
+        <th class="header-cell">Gender</th>
+        <th class="header-cell">Artwork Type</th>
+        <th class="header-cell">Contact Info</th>
+        <th class="header-cell">Exhibition Date</th>
+        <th class="header-cell">Special Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let artist of featuredArtists" class="data-row">
+        <td class="data-cell" data-label="Id">{{ artist.artist_id }}</td>
+        <td class="data-cell" data-label="Name">{{ artist.name }}</td>
+        <td class="data-cell" data-label="DOB">{{ artist.dob | date }}</td>
+        <td class="data-cell" data-label="Gender">{{ artist.gender }}</td>
+        <td class="data-cell" data-label="ArtWorkType">{{ artist.artwork_type }}</td>
+        <td class="data-cell" data-label="Contact">{{ artist.contact_info }}</td>
+        <td class="data-cell" data-label="ExhibitionDate">{{ artist.exhibition_date | date }}</td>
+        <td class="data-cell" data-label="SpecialNotes">{{ artist.special_notes || "-"}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  
+  
   
 </ion-content>

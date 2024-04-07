@@ -16,10 +16,12 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   
 <ion-button type="submit"
+size="large"
 expand="block"
 (click)="loadArtists()"
-class="ion-margin-top"
->Display Artists</ion-button
+>
+<ion-icon slot="start" name="albums-outline"></ion-icon>
+Display Artists</ion-button
 >
   <table class="custom-table">
     <thead>

@@ -1,3 +1,74 @@
 ion-header{
     display: flex;
 }
+
+ion-header{
+    display: flex;
+}
+.custom-table {
+    border-collapse: collapse;
+    width: 100%; 
+  }
+  
+  .header-cell,
+  .data-cell {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .header-cell {
+    background-color: hsla(175, 84%, 45%, 0.836);
+    color: hsl(0, 0%, 100%); 
+  }
+  
+
+  
+  .data-row:nth-child(even) {
+    background-color: hsl(184, 25%, 12%); 
+  }
+  
+  .data-row:hover {
+    background-color:  hsla(175, 84%, 45%, 0.836); 
+  }
+
+  ion-button{
+    --background: hsl(261, 50%, 50%);
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    --color:  hsla(175, 84%, 45%, 0.836);
+}
+  
+  @media only screen and (max-width: 768px) {
+  
+    .custom-table{
+      overflow-x: auto;
+    }
+  
+    
+    .custom-table {
+      display: block;
+    }
+ 
+    .data-row {
+      display: flex;
+      flex-wrap: wrap;
+
+    }
+  
+    .data-cell,
+    .header-cell {
+      width: 100%;  
+      padding: 10px 0; 
+      text-align: center;
+    }
+  
+  
+    .header-cell {
+      display: none;
+    }
+
+    .data-cell::before {
+        content: attr(data-label) ": ";
+        font-weight: bold;
+        display: block;
+      }
+  }

@@ -16,8 +16,8 @@ export class AddArtistPage implements OnInit {
   isFeaturedArtist: boolean = false;
   isRegularArtist: boolean = false;
 
-  async canDismiss(data?: any, role?: string){
-        return role !== 'gesture';
+  async canDismiss(data?: any, role?: string) {
+    return role !== 'gesture';
   }
 
   constructor(private dataService: DataService) {}
@@ -49,12 +49,9 @@ export class AddArtistPage implements OnInit {
     this.addArtist();
   }
 
-  
   addArtist() {
     if (this.formData.valid) {
-  
-      
-       this.dataService
+      this.dataService
         .addArtist(
           this.formData.value.name,
           this.formData.value.dob,
@@ -64,12 +61,9 @@ export class AddArtistPage implements OnInit {
           this.formData.value.exhibitionDate,
           this.formData.value.specialNotes,
           this.formData.value.isFeaturedArtist
-        
         )
         .subscribe(
-          () => {
-                
-          },
+          () => {},
           (err: any) => {
             alert('err');
             console.log(err.message);
@@ -81,7 +75,7 @@ export class AddArtistPage implements OnInit {
   }
 
   //reset form data
-  resetData(){
+  resetData() {
     this.formData.reset();
   }
 }

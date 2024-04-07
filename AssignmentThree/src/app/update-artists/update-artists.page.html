@@ -1,27 +1,220 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-tab-button tab="add-artist" href="/tabs/add-artist" >
+    <ion-tab-button tab="add-artist" href="/tabs/add-artist">
       <ion-icon aria-hidden="true" name="person-add-sharp"></ion-icon>
-      <ion-label style="color: hsl(103, 50%, 50%);">Add Artists</ion-label>
+      <ion-label style="color: hsl(103, 50%, 50%)">Add Artists</ion-label>
     </ion-tab-button>
   </ion-toolbar>
   <ion-toolbar>
-  <ion-tab-button tab="update-artists" href="/tabs/update-artists">
-    <ion-icon aria-hidden="true" name="hammer-sharp"></ion-icon>
-    <ion-label style="color: hsl(64, 77%, 60%);">Update Artists</ion-label>
-  </ion-tab-button>
+    <ion-tab-button tab="update-artists" href="/tabs/update-artists">
+      <ion-icon aria-hidden="true" name="hammer-sharp"></ion-icon>
+      <ion-label style="color: hsl(64, 77%, 60%)">Update Artists</ion-label>
+    </ion-tab-button>
   </ion-toolbar>
   <ion-toolbar>
-  <ion-tab-button tab="delete-artists" href="/tabs/delete-artists">
-    <ion-icon aria-hidden="true" name="trash-sharp"></ion-icon>
-    <ion-label style="color: hsl(0, 100%, 50%);">Delete Artists</ion-label>
-  </ion-tab-button>
+    <ion-tab-button tab="delete-artists" href="/tabs/delete-artists">
+      <ion-icon aria-hidden="true" name="trash-sharp"></ion-icon>
+      <ion-label style="color: hsl(0, 100%, 50%)">Delete Artists</ion-label>
+    </ion-tab-button>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">updateArtists</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-content>
+      <h1>Update Artist Page</h1>
+      <p>
+        Please select the artist to be updated and Fill in the fields to be
+        updated.
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <form
+    [formGroup]="updateFormData"
+    class="ion-padding"
+    (ngSubmit)="updateArtist()"
+  >
+    <ion-list>
+      <ion-item
+        [class.invalid]="updateFormData.get('updateName')?.touched && updateFormData.get('updateName')?.invalid"
+      >
+        <ion-select placeholder="Select an Artist" formControlName="updateName">
+          <ion-select-option
+            *ngFor="let artist of artists"
+            [value]="artist.name"
+            >{{ artist.name }}</ion-select-option
+          >
+        </ion-select>
+        <ion-text
+          color="danger"
+          *ngIf="updateFormData.get('updateName')?.errors?.['required']"
+          class="error-message"
+          >Artist selection is required.</ion-text
+        >
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom">
+        <ion-input
+          placeholder="Enter name"
+          formControlName="name"
+          label="Name:"
+          labelPlacement="floating"
+          [clearInput]="true"
+          class="ion-text-capitalize"
+        ></ion-input>
+        <ion-text
+          color="danger"
+          *ngIf="updateFormData.get('name')?.errors?.['required'] && updateFormData.get('name')?.touched"
+          class="error-message"
+          >Name is required.</ion-text
+        >
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-input
+          type="Date"
+          placeholder="Select Date of Birth"
+          formControlName="dob"
+          label="DOB:"
+          labelPlacement="floating"
+        ></ion-input>
+        <ion-text
+          color="danger"
+          *ngIf="updateFormData.get('dob')?.errors?.['required'] && updateFormData.get('dob')?.touched"
+          class="error-message"
+          >DOB is required.</ion-text
+        >
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-select
+          formControlName="gender"
+          placeholder="Select Gender"
+          interface="popover"
+          label="Gender:"
+          labelPlacement="floating"
+        >
+          <ion-select-option value="Female">Female</ion-select-option>
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Unspecified">Unspecified</ion-select-option>
+        </ion-select>
+        <ion-text
+          color="danger"
+          *ngIf="updateFormData.get('gender')?.errors?.['required'] && updateFormData.get('gender')?.touched"
+          class="error-message"
+          >Gender is required.</ion-text
+        >
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-select
+          formControlName="artWorkType"
+          placeholder="Select Artwork Type"
+          interface="popover"
+          label="Artwork Type:"
+          labelPlacement="floating"
+        >
+          <ion-select-option value="painting">Painting</ion-select-option>
+          <ion-select-option value="sculpture">Sculpture</ion-select-option>
+          <ion-select-option value="photograph">Photograph</ion-select-option>
+          <ion-select-option value="video art">Video Art</ion-select-option>
+          <ion-select-option value="digital art">Digital Art</ion-select-option>
+          <ion-select-option value="printmaking">Printmaking</ion-select-option>
+        </ion-select>
+        <ion-text
+          color="danger"
+          *ngIf="updateFormData.get('artWorkType')?.errors?.['required'] && updateFormData.get('artWorkType')?.touched"
+          class="error-message"
+          >Artwork Type is required.</ion-text
+        >
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-input
+          placeholder="Enter contact info"
+          formControlName="contactInfo"
+          label="Contact Info:"
+          labelPlacement="floating"
+          [clearInput]="true"
+        ></ion-input>
+        <ion-text
+          color="danger"
+          *ngIf="updateFormData.get('contactInfo')?.errors?.['required'] && updateFormData.get('contactInfo')?.touched"
+          class="error-message"
+          >Contact Information is required.</ion-text
+        >
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-input
+          type="Date"
+          placeholder="Select Exhibition Date"
+          formControlName="exhibitionDate"
+          label="Exhibition Date:"
+          labelPlacement="floating"
+        ></ion-input>
+        <ion-text
+          color="danger"
+          *ngIf="updateFormData.get('exhibitionDate')?.errors?.['required'] && updateFormData.get('exhibitionDate')?.touched"
+          class="error-message"
+          >Exhibition Date is required.</ion-text
+        >
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-textarea
+          label="Special Notes"
+          labelPlacement="floating"
+          formControlName="specialNotes"
+          placeholder="Any Special Notes"
+        ></ion-textarea>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-checkbox
+          formControlName="isFeaturedArtist"
+          slot="start"
+          value="featured"
+          (ionChange)="updateCheckboxValue($event, 'featured')"
+          >Featured Artist
+        </ion-checkbox>
+        <ion-checkbox
+          formControlName="isRegularArtist"
+          slot="start"
+          value="regular"
+          (ionChange)="updateCheckboxValue($event, 'regular')"
+          >Regular Artist
+        </ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-button
+      type="submit"
+      expand="block"
+      [disabled]="!updateFormData.valid"
+      class="ion-margin-top"
+      id="open-modal"
+      >Add Artist
+    </ion-button>
+    <ion-modal #modal trigger="open-modal">
+      <ng-template>
+        <ion-content>
+          <ion-toolbar>
+            <ion-buttons slot="end">
+              <ion-button class="dialogbtn" (click)="modal.dismiss()"
+                >Close</ion-button
+              >
+            </ion-buttons>
+          </ion-toolbar>
+          <ion-card color="light">
+            <ion-card-content>
+              <h1>
+                Artist with name {{updateFormData.value.name}} added
+                successfully.
+              </h1>
+              <p>You can view your added artists in the display page.</p>
+              <ion-button
+                tab="display-artists"
+                href="/tabs/display-artists"
+                expand="block"
+                class="dialogbtn"
+                >Try it</ion-button
+              >
+            </ion-card-content>
+          </ion-card>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </form>
 </ion-content>

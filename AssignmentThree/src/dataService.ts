@@ -31,12 +31,34 @@ export class DataService {
     return this.http.get<Artist>(this.url);
   }
 
-  public deleteArtist(artistName: string): Observable <Artist> {
+  public deleteArtist(artistName: string): Observable<Artist> {
     const url = `${this.url}/${artistName}`;
     return this.http.delete<Artist>(url);
   }
 
-  
+  public updateArtist(
+    updateName: string,
+    name: string,
+    dob: Date,
+    gender: Gender,
+    artworkType: ArtworkType,
+    contactInfo: string,
+    exhibitionDate: Date,
+    specialNotes: string,
+    isFeaturedArtist: number
+  ): Observable<Artist> {
+    return this.http.put<Artist>(this.url + updateName, {
+      name: name,
+      dob: dob,
+      gender: gender,
+      artwork_type: artworkType,
+      contact_info: contactInfo,
+      exhibition_date: exhibitionDate,
+      special_notes: specialNotes,
+      isFeaturedArtist: isFeaturedArtist,
+    });
+  }
+
   addArtist(
     name: string,
     dob: Date,
@@ -45,7 +67,7 @@ export class DataService {
     contactInfo: string,
     exhibitionDate: Date,
     specialNotes: string,
-    isFeaturedArtist: number,
+    isFeaturedArtist: number
   ): Observable<Artist> {
     return this.http.post<Artist>(this.url, {
       name: name,

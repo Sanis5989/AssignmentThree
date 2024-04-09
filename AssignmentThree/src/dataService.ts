@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Artist } from './Artist';
+import { ArtistPut } from './ArtistPut';
 
 // Enums for artist class
 enum Gender {
@@ -36,27 +37,11 @@ export class DataService {
     return this.http.delete<Artist>(url);
   }
 
-  public updateArtist(
+  updateArtist(
     updateName: string,
-    name: string,
-    dob: Date,
-    gender: Gender,
-    artworkType: ArtworkType,
-    contactInfo: string,
-    exhibitionDate: Date,
-    specialNotes: string,
-    isFeaturedArtist: number
-  ): Observable<Artist> {
-    return this.http.put<Artist>(this.url + updateName, {
-      name: name,
-      dob: dob,
-      gender: gender,
-      artwork_type: artworkType,
-      contact_info: contactInfo,
-      exhibition_date: exhibitionDate,
-      special_notes: specialNotes,
-      isFeaturedArtist: isFeaturedArtist,
-    });
+    artistPut: ArtistPut
+  ): Observable<ArtistPut> {
+    return this.http.put<ArtistPut>(this.url + updateName, artistPut);
   }
 
   addArtist(

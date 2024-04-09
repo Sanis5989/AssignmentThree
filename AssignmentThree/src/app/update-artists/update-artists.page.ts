@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Data } from '@angular/router';
 import { Artist } from 'src/Artist';
+import { ArtistPut } from 'src/ArtistPut';
 import { DataService } from 'src/dataService';
 
 @Component({
@@ -24,13 +25,11 @@ export class UpdateArtistsPage implements OnInit {
     //form control and validations
     this.updateFormData = new FormGroup({
       updateName: new FormControl('', Validators.required),
-      name: new FormControl('', Validators.required),
       dob: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required),
-      artWorkType: new FormControl('', Validators.required),
+      artworkType: new FormControl('', Validators.required),
       contactInfo: new FormControl('', Validators.required),
       exhibitionDate: new FormControl('', Validators.required),
-      specialNotes: new FormControl(''),
       isFeaturedArtist: new FormControl(false),
       isRegularArtist: new FormControl(true),
     });
@@ -56,40 +55,36 @@ export class UpdateArtistsPage implements OnInit {
 
   //update function to call update method from data service
   updateArtist() {
-    let artist = new Artist(
-      50000,
-      this.updateFormData.value.name,
-      this.updateFormData.value.dob,
-      this.updateFormData.value.gender,
-      this.updateFormData.value.artworkType,
-      this.updateFormData.value.contactInfo,
-      this.updateFormData.value.exhibitionDate,
-      this.updateFormData.value.specialNotes,
-      this.updateFormData.value.isFeaturedArtist
-    );
     this.dataService
       .updateArtist(
-        this.updateFormData.value.updateArtist,
-        this.updateFormData.value.name,
-        this.updateFormData.value.dob,
-        this.updateFormData.value.gender,
-        this.updateFormData.value.artworkType,
-        this.updateFormData.value.contactInfo,
-        this.updateFormData.value.exhibitionDate,
-        this.updateFormData.value.specialNotes,
-        this.updateFormData.value.isFeaturedArtist
+        this.updateFormData.value.updateName,
+        new ArtistPut(
+          this.updateFormData.value.dob,
+          this.updateFormData.value.gender,
+          this.updateFormData.value.artworkType,
+          this.updateFormData.value.contactInfo,
+          this.updateFormData.value.exhibitionDate,
+          this.updateFormData.value.isFeaturedArtist
+        )
       )
       .subscribe(
-        (d: any) => {
+        () => {
           alert('Artist has been updated in the database.');
-          window.location.reload();
+          console.log(
+            this.updateFormData.value.dob,
+            this.updateFormData.value.gender,
+            this.updateFormData.value.artworkType,
+            this.updateFormData.value.contactInfo,
+            this.updateFormData.value.exhibitionDate,
+            this.updateFormData.value.isFeaturedArtist,
+            this.updateFormData.value.updateName
+          );
         },
         (err: any) => {
           alert('err');
           console.log(err.message);
         }
       );
-    console.log(artist);
   }
 
   //function to get the updated featured artist or regular artist input field

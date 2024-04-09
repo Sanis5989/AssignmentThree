@@ -54,22 +54,6 @@
 
       <ion-item class="ion-margin-bottom">
         <ion-input
-          placeholder="Enter name"
-          formControlName="name"
-          label="Name:"
-          labelPlacement="floating"
-          [clearInput]="true"
-          class="ion-text-capitalize"
-        ></ion-input>
-        <ion-text
-          color="danger"
-          *ngIf="updateFormData.get('name')?.errors?.['required'] && updateFormData.get('name')?.touched"
-          class="error-message"
-          >Name is required.</ion-text
-        >
-      </ion-item>
-      <ion-item class="ion-margin-bottom">
-        <ion-input
           type="Date"
           placeholder="Select Date of Birth"
           formControlName="dob"
@@ -104,7 +88,7 @@
       </ion-item>
       <ion-item class="ion-margin-bottom">
         <ion-select
-          formControlName="artWorkType"
+          formControlName="artworkType"
           placeholder="Select Artwork Type"
           interface="popover"
           label="Artwork Type:"
@@ -119,7 +103,7 @@
         </ion-select>
         <ion-text
           color="danger"
-          *ngIf="updateFormData.get('artWorkType')?.errors?.['required'] && updateFormData.get('artWorkType')?.touched"
+          *ngIf="updateFormData.get('artworkType')?.errors?.['required'] && updateFormData.get('artworkType')?.touched"
           class="error-message"
           >Artwork Type is required.</ion-text
         >
@@ -154,14 +138,7 @@
           >Exhibition Date is required.</ion-text
         >
       </ion-item>
-      <ion-item class="ion-margin-bottom">
-        <ion-textarea
-          label="Special Notes"
-          labelPlacement="floating"
-          formControlName="specialNotes"
-          placeholder="Any Special Notes"
-        ></ion-textarea>
-      </ion-item>
+
       <ion-item class="ion-margin-bottom">
         <ion-checkbox
           formControlName="isFeaturedArtist"
@@ -185,7 +162,7 @@
       [disabled]="!updateFormData.valid"
       class="ion-margin-top"
       id="open-modal"
-      >Add Artist
+      >UpdateArtist
     </ion-button>
     <ion-modal #modal trigger="open-modal">
       <ng-template>

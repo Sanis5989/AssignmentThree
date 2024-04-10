@@ -1,0 +1,28 @@
+
+  <ion-content  [fullscreen]="true">
+    <ion-toolbar>
+      <ion-title>Artist Details</ion-title>
+      <ion-buttons slot="end">
+        <ion-button color="red" (click)="dismissModal()">Close</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-list *ngIf="artist">
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-img src="https://i.pravatar.cc/300?u=b"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{artist.name}}</h2>
+          <p>Date of Birth: {{artist.dob | date}}</p>
+          <p>Gender: {{artist.gender}}</p>
+          <p>Artwork Type: {{artist.artwork_type}}</p>
+          <p>Contact Info: {{artist.contact_info}}</p>
+          <p>Exhibition Date: {{artist.exhibition_date | date}}</p>
+          <p>Special Notes: {{artist.special_notes || "-"}}</p>
+          <p *ngIf="!artist">Artist details not available.</p> <!--If no artist found-->
+        </ion-label>
+      </ion-item>
+      </ion-list>
+      </ion-content>
+      
+ 

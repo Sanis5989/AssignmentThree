@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Artist } from 'src/Artist';
 import { DataService } from 'src/dataService';
+import { ModalController } from '@ionic/angular';
+import { ArtistDetailsComponentPage } from '../artist-details-component/artist-details-component.page';
 
 @Component({
   selector: 'app-display-asrtists',
@@ -10,9 +12,11 @@ import { DataService } from 'src/dataService';
 export class DisplayAsrtistsPage implements OnInit {
   artists: Artist[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private modalCtrl: ModalController) {}
 
   ngOnInit() {
+
+    this.loadArtists();
    
   }
 //function to get artists from api and assign it to the empty artists array.
@@ -34,6 +38,25 @@ export class DisplayAsrtistsPage implements OnInit {
     );
   }
 
+  //create a modal popup when the button is clicked. 
+//check the artist Id and find the specific artist based on Id and create the modal with artist object.
+  async presentArtistDetails(artistId: number) {
+    const artist = this.artists.find(artist => artist.artist_id === artistId);
+    if (artist) {
+      const modal = await this.modalCtrl.create({
+        component: ArtistDetailsComponentPage,
+        componentProps: {
+          artist: artist
+        }
+      });
+      return await modal.present();
+    } else {
+      console.error('Artist not found:', artistId); // Handle case where artist is missing
+    }
 
+    console.log(this.artists);
+
+  }
+  
 }
 

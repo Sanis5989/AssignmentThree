@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'delete-artists',
     loadChildren: () => import('./delete-artists/delete-artists.module').then( m => m.DeleteArtistsPageModule)
   },
+  {
+    path: 'artist-details-component',
+    loadChildren: () => import('./artist-details-component/artist-details-component.module').then( m => m.ArtistDetailsComponentPageModule)
+  },
 
 ];
 @NgModule({

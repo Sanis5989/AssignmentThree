@@ -2,19 +2,27 @@
   <ion-toolbar>
     <ion-tab-button tab="display-artists" href="/tabs/display-artists">
       <ion-icon aria-hidden="true" name="albums-outline"></ion-icon>
-      <ion-label style="color: hsl(261, 50%, 50%);">Display Artists</ion-label>
+      <ion-label style="color: hsl(261, 50%, 50%)">Display Artists</ion-label>
     </ion-tab-button>
   </ion-toolbar>
   <ion-toolbar>
-  <ion-tab-button tab="display-featured-artists" href="/tabs/display-featured-artists">
-    <ion-icon aria-hidden="true" name="copy-outline"></ion-icon>
-    <ion-label style="color: hsla(175, 84%, 45%, 0.836);">Display Featured Artists</ion-label>
-  </ion-tab-button>
+    <ion-tab-button
+      tab="display-featured-artists"
+      href="/tabs/display-featured-artists"
+    >
+      <ion-icon aria-hidden="true" name="copy-outline"></ion-icon>
+      <ion-label style="color: hsla(175, 84%, 45%, 0.836)"
+        >Display Featured Artists</ion-label
+      >
+    </ion-tab-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    (ionInput)="filterArtists()"
+  ></ion-searchbar>
 
   <table class="custom-table">
     <thead>
@@ -27,18 +35,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let artist of featuredArtists" class="data-row">
-        <td class="data-cell" >{{ artist.artist_id }}</td>
-        <td class="data-cell" >{{ artist.name }}</td>
-        <td class="data-cell" >{{ artist.dob | date }}</td>
-        <td class="data-cell" >{{ artist.gender }}</td>
-        <td class="data-cell"><ion-button (click)="presentArtistDetails(artist.artist_id)" id="open-modal">Details</ion-button></td>
+      <tr *ngFor="let artist of filteredArtists" class="data-row">
+        <td class="data-cell">{{ artist.artist_id }}</td>
+        <td class="data-cell">{{ artist.name }}</td>
+        <td class="data-cell">{{ artist.dob | date }}</td>
+        <td class="data-cell">{{ artist.gender }}</td>
+        <td class="data-cell">
+          <ion-button
+            (click)="presentArtistDetails(artist.artist_id)"
+            id="open-modal"
+            >Details</ion-button
+          >
+        </td>
       </tr>
     </tbody>
   </table>
-  
-  
-  
-  
-  
 </ion-content>

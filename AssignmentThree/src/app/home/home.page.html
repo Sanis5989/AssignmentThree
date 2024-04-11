@@ -1,23 +1,71 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Home Page</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-item lines="none">
+  <ion-label>
+    <h1>Art Gallery app</h1>
+  </ion-label>
+</ion-item>
 
 <ion-content [fullscreen]="true">
-  <div class="background-image"></div>
-  <div class="greeting">
-    <h1>Welcome to Our App!</h1>
-    <p>
-      Authors:
-      <br />
-      Ishan Giri
-      <br />
-      Sanish Maharjan
-      <br />
-      Juan Serna
-    </p>
-  </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Welcome to our app</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Your greetings here -->
+      <p>
+        Hello, welcome to our artist management app! Ready to explore the
+        features that we have for you ?
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Instructions</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <b> 1. Home Page:</b> Upon opening the app, you'll see the home page
+        with greetings and instructions.
+        <br />
+        <b> 2. Navigation Bar:</b> At the bottom, there's a navigation bar with
+        four buttons: - Home - Add Artist - Display Artist - Privacy and
+        Security
+        <br />
+        <b> 3. Add Artist Page: </b>If you go to "Add Artist," you'll find a
+        form to add artists. At the top, there's a bar with three buttons: - Add
+        Artist - Update Artist - Delete Artist
+        <br />
+        <b> 4. Display Artist Page:</b> Clicking "Display Artist" takes you to a
+        page showing a table with all added artists. You'll also find a search
+        bar to look for any artist by name. At the top, there are buttons for
+        both "Display Artist" and "Display Featured Artist." The latter
+        functions the same as "Display Artist" but only shows featured artists.
+        <br />
+        <b> 5. Privacy and Security Page:</b> By clicking "Privacy and
+        Security," you'll find all information related to app privacy and
+        security.
+        <br />
+        That's it! Enjoy using the app to manage your artists effortlessly.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Author Info</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <br />
+        Ishan Giri
+        <br />
+        Sanish Maharjan
+        <br />
+        Juan Serna
+      </p>
+    </ion-card-content>
+  </ion-card>
+
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">home</ion-title>

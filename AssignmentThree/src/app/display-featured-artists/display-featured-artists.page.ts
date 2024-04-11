@@ -32,6 +32,7 @@ export class DisplayFeaturedArtistsPage implements OnInit {
             (artist) => artist.is_featured_artist === 1
           );
           this.featuredArtists = isFeaturedArtists;
+          this.filterArtists();
         } else {
           // If not, log an error
           console.error('Unexpected error:', response);

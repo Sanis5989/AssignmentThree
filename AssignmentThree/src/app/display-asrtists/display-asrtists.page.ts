@@ -11,7 +11,6 @@ import { ArtistDetailsComponentPage } from '../artist-details-component/artist-d
 })
 export class DisplayAsrtistsPage implements OnInit {
   artists: Artist[] = [];
-  filteredArtists: Artist[] = [];
   searchTerm: string = '';
 
   constructor(
@@ -30,7 +29,6 @@ export class DisplayAsrtistsPage implements OnInit {
         if (Array.isArray(response)) {
           // If it is, assign it to artists
           this.artists = response;
-          this.filterArtists();
         } else {
           // If not, log an error
           console.error('Unexpected response:', response);
@@ -42,18 +40,18 @@ export class DisplayAsrtistsPage implements OnInit {
     );
   }
 
-  filterArtists(): void {
-    // Check if the search term is empty or contains only whitespace
-    if (!this.searchTerm.trim()) {
-      // If no search term provided, show all artists
-      this.filteredArtists = this.artists;
-    } else {
-      // If there is a search term, filter artists based on the search term
-      this.filteredArtists = this.artists.filter((artist) =>
-        // Convert artist name and search term to lowercase for case-insensitive search
-        artist.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    }
+  //search fuction caling on data service api
+  searchArtist(name: string) {
+    this.dataService.searchArtist(name).subscribe(
+      (d: any) => {
+        this.artists = [];
+        this.artists.push(d);
+        console.log(d);
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
   }
 
   //create a modal popup when the button is clicked.

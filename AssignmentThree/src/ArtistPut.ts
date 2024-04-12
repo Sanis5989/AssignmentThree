@@ -19,7 +19,6 @@ export class ArtistPut {
   artwork_type: ArtworkType;
   contact_info: string;
   exhibition_date: Date;
-
   is_featured_artist: number;
 
   constructor(
@@ -36,7 +35,6 @@ export class ArtistPut {
     this.artwork_type = artwork_type;
     this.contact_info = contact_info;
     this.exhibition_date = exhibition_date;
-
     this.is_featured_artist = is_featured_artist;
   }
 }

@@ -28,15 +28,17 @@ export class DataService {
   private url: string = 'https://prog2005.it.scu.edu.au/ArtGalley/';
 
   //get request on api
-  public getAllArtists(): Observable<Artist> {
+  getAllArtists(): Observable<Artist> {
     return this.http.get<Artist>(this.url);
   }
 
-  public deleteArtist(artistName: string): Observable<Artist> {
+  //delete fuction to call on api
+  deleteArtist(artistName: string): Observable<Artist> {
     const url = `${this.url}/${artistName}`;
     return this.http.delete<Artist>(url);
   }
 
+  //update artist function to call on api
   updateArtist(
     updateName: string,
     artistPut: ArtistPut
@@ -44,6 +46,7 @@ export class DataService {
     return this.http.put<ArtistPut>(this.url + updateName, artistPut);
   }
 
+  //funcion to call on api to add an artist
   addArtist(
     name: string,
     dob: Date,
@@ -54,6 +57,7 @@ export class DataService {
     specialNotes: string,
     isFeaturedArtist: number
   ): Observable<Artist> {
+    //http post req on api
     return this.http.post<Artist>(this.url, {
       name: name,
       dob: dob,
@@ -64,5 +68,11 @@ export class DataService {
       special_notes: specialNotes,
       is_featured_artist: isFeaturedArtist,
     });
+  }
+
+  //function to search artist on api
+  searchArtist(name: string): Observable<Artist> {
+    //http get req on api with name of artist
+    return this.http.get<Artist>(this.url + name);
   }
 }

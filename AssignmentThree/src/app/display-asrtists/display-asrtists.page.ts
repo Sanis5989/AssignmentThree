@@ -45,7 +45,7 @@ export class DisplayAsrtistsPage implements OnInit {
     this.dataService.searchArtist(name).subscribe(
       (d: any) => {
         this.artists = [];
-        this.artists.push(d);
+        this.artists = d;
         console.log(d);
       },
       (err: any) => {

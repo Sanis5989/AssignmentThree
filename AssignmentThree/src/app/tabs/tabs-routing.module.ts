@@ -15,17 +15,26 @@ const routes: Routes = [
 
       {
         path: 'display-artists',
-        loadChildren: () => 
-        import('../display-asrtists/display-asrtists.module').then((m) => m.DisplayAsrtistsPageModule),
+        loadChildren: () =>
+          import('../display-asrtists/display-asrtists.module').then(
+            (m) => m.DisplayAsrtistsPageModule
+          ),
+      },
+
+      {
+        path: 'search',
+        loadChildren: () =>
+          import('../search/search.module').then((m) => m.SearchPageModule),
       },
 
       {
         path: 'display-featured-artists',
         loadChildren: () =>
-        import('../display-featured-artists/display-featured-artists.module').then((m)=> m.DisplayFeaturedArtistsPageModule)
+          import(
+            '../display-featured-artists/display-featured-artists.module'
+          ).then((m) => m.DisplayFeaturedArtistsPageModule),
       },
 
-     
       {
         path: 'tab3',
         loadChildren: () =>
@@ -41,11 +50,17 @@ const routes: Routes = [
       },
       {
         path: 'update-artists',
-        loadChildren: () => import('../update-artists/update-artists.module').then((m)=> m.UpdateArtistsPageModule)
+        loadChildren: () =>
+          import('../update-artists/update-artists.module').then(
+            (m) => m.UpdateArtistsPageModule
+          ),
       },
       {
         path: 'delete-artists',
-        loadChildren: () => import('../delete-artists/delete-artists.module').then((m)=> m.DeleteArtistsPageModule)
+        loadChildren: () =>
+          import('../delete-artists/delete-artists.module').then(
+            (m) => m.DeleteArtistsPageModule
+          ),
       },
       {
         path: '**',

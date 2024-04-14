@@ -6,6 +6,12 @@
     </ion-tab-button>
   </ion-toolbar>
   <ion-toolbar>
+    <ion-tab-button tab="search" href="/tabs/search">
+      <ion-icon aria-hidden="true" name="search-outline"></ion-icon>
+      <ion-label style="color: hsl(108, 50%, 50%)">Search</ion-label>
+    </ion-tab-button>
+  </ion-toolbar>
+  <ion-toolbar>
     <ion-tab-button
       tab="display-featured-artists"
       href="/tabs/display-featured-artists"
@@ -19,11 +25,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <div class="flexBox">
-    <ion-searchbar [(ngModel)]="searchTerm"></ion-searchbar
-    ><ion-button (click)="searchArtist(searchTerm)">Search</ion-button>
-  </div>
-
   <table class="custom-table">
     <thead>
       <tr>
@@ -41,8 +42,7 @@
         <td class="data-cell">{{ artist.dob | date }}</td>
         <td class="data-cell">{{ artist.gender }}</td>
         <td class="data-cell">
-          <ion-button
-            (click)="presentArtistDetails(artist.artist_id)"
+          <ion-button (click)="presentArtistDetails(artist.artist_id)"
             >Details</ion-button
           >
         </td>

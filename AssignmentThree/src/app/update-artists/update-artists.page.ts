@@ -15,7 +15,8 @@ export class UpdateArtistsPage implements OnInit {
   //creating an emptyarray of artists
   artists: Artist[] = [];
   updateFormData!: FormGroup;
-
+  deleteFormData!: FormGroup;
+  deleteName!: string;
   //initializing an new artist object to hold update details
 
   ngOnInit() {
@@ -33,7 +34,11 @@ export class UpdateArtistsPage implements OnInit {
       isFeaturedArtist: new FormControl(false),
       isRegularArtist: new FormControl(true),
     });
+    this.deleteFormData = new FormGroup({
+      deleteName: new FormControl('', Validators.required),
+    });
   }
+
   //function to get artists from api and assign it to the empty artists array.
   loadArtists(): void {
     this.dataService.getAllArtists().subscribe(
@@ -94,5 +99,17 @@ export class UpdateArtistsPage implements OnInit {
     } else if (checkboxType === 'regular') {
       this.updateFormData.get('isFeaturedArtist')?.setValue(false);
     }
+  }
+
+  //fuction to delete artitts
+  deleteArtist(name: string) {
+    this.dataService.deleteArtist(name).subscribe(
+      (d: any) => {
+        console.log('deleted');
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
   }
 }

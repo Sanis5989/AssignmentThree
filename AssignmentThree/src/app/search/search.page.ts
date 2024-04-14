@@ -5,7 +5,7 @@ import { ModalController } from '@ionic/angular';
 import { ArtistDetailsComponentPage } from '../artist-details-component/artist-details-component.page';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-search',
   templateUrl: './search.page.html',
   styleUrls: ['./search.page.scss'],
 })

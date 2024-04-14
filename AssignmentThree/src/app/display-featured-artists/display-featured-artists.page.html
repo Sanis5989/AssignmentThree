@@ -19,10 +19,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-searchbar
-    [(ngModel)]="searchTerm"
-    (ionInput)="filterArtists()"
-  ></ion-searchbar>
+  <div class="flexBox">
+    <ion-searchbar [(ngModel)]="searchTerm"></ion-searchbar
+    ><ion-button (click)="searchArtist(searchTerm)">Search</ion-button>
+  </div>
 
   <table class="custom-table">
     <thead>
@@ -35,7 +35,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let artist of filteredArtists" class="data-row">
+      <tr *ngFor="let artist of featuredArtists" class="data-row">
         <td class="data-cell">{{ artist.artist_id }}</td>
         <td class="data-cell">{{ artist.name }}</td>
         <td class="data-cell">{{ artist.dob | date }}</td>
@@ -43,7 +43,6 @@
         <td class="data-cell">
           <ion-button
             (click)="presentArtistDetails(artist.artist_id)"
-            id="open-modal"
             >Details</ion-button
           >
         </td>

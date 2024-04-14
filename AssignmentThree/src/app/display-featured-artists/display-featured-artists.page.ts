@@ -28,11 +28,11 @@ export class DisplayFeaturedArtistsPage implements OnInit {
         // Check if the response is an array
         if (Array.isArray(response)) {
           // If it is, assign it to artists
-          let isFeaturedArtists = response.filter(
+          this.featuredArtists  = response.filter(
             (artist) => artist.is_featured_artist === 1
           );
-          this.featuredArtists = isFeaturedArtists;
-          this.filterArtists();
+          
+      
         } else {
           // If not, log an error
           console.error('Unexpected error:', response);
@@ -44,19 +44,19 @@ export class DisplayFeaturedArtistsPage implements OnInit {
     );
   }
 
-  filterArtists(): void {
-    // Check if the search term is empty or contains only whitespace
-    if (!this.searchTerm.trim()) {
-      // If no search term provided, show all featured artists
-      this.filteredArtists = this.featuredArtists;
-    } else {
-      // If search term is provided, filter the featuredArtists array
-      this.filteredArtists = this.featuredArtists.filter((artist) =>
-        // Filter artists whose name includes the search term (case insensitive)
-        artist.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    }
+  searchArtist(name: string) {
+    this.dataService.searchArtist(name).subscribe(
+      (d: any) => {
+        this.featuredArtists = [];
+        this.featuredArtists = d;
+        console.log(d);
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
   }
+  
 
   //create a modal popup when the button is clicked.
   //check the artist Id and find the specific artist based on Id and create the modal with artist object.

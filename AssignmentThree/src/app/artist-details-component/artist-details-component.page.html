@@ -8,9 +8,6 @@
     </ion-toolbar>
     <ion-list *ngIf="artist">
       <ion-item>
-        <ion-avatar slot="start">
-          <ion-img src="https://i.pravatar.cc/300?u=b"></ion-img>
-        </ion-avatar>
         <ion-label>
           <h2>{{artist.name}}</h2>
           <p>Date of Birth: {{artist.dob | date}}</p>

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Data } from '@angular/router';
 import { Artist } from 'src/Artist';
 import { ArtistPut } from 'src/ArtistPut';
 import { DataService } from 'src/dataService';
-import { __awaiter } from 'tslib';
 
 @Component({
   selector: 'app-update-artists',
@@ -15,7 +15,7 @@ export class UpdateArtistsPage implements OnInit {
   //creating an emptyarray of artists
   artists: Artist[] = [];
   updateFormData!: FormGroup;
-
+  deleteFormData!: FormGroup;
   //initializing an new artist object to hold update details
 
   ngOnInit() {
@@ -72,7 +72,18 @@ export class UpdateArtistsPage implements OnInit {
         )
       )
       .subscribe(
-        () => {},
+        () => {
+          alert('Artist has been updated in the database.');
+          console.log(
+            this.updateFormData.value.dob,
+            this.updateFormData.value.gender,
+            this.updateFormData.value.artworkType,
+            this.updateFormData.value.contactInfo,
+            this.updateFormData.value.exhibitionDate,
+            this.updateFormData.value.isFeaturedArtist,
+            this.updateFormData.value.updateName
+          );
+        },
         (err: any) => {
           alert('err');
           console.log(err.message);
@@ -87,5 +98,17 @@ export class UpdateArtistsPage implements OnInit {
     } else if (checkboxType === 'regular') {
       this.updateFormData.get('isFeaturedArtist')?.setValue(false);
     }
+  }
+
+  //fuction to delete artitts
+  deleteArtist(name: string) {
+    this.dataService.deleteArtist(name).subscribe(
+      (d: any) => {
+        console.log('deleted');
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
   }
 }

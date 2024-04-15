@@ -1,5 +1,25 @@
-.header {
-  background: linear-gradient(to right, #667eea, #764ba2);
-  color: #ce3a3a; 
+h1{
+  text-align: center;
+  color:hsl(261, 51%, 50%);
+}
+
+
+.homeCard{
+  text-align: center;
+  background: linear-gradient(to bottom, hsl(261, 51%, 50%), hsl(0, 9%, 65%)); 
+  color: white;
+}
+
+.heading{
+  text-align: center;
+  color: white;
+}
+
+
+.instructions{
+  background: linear-gradient(to bottom, hsl(266, 53%, 48%), hsl(0, 35%, 20%)); 
+  color: white;
   text-align: center;
 }
+
+

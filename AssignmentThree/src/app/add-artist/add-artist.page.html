@@ -1,8 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-tab-button tab="add-artist" href="/tabs/add-artist" >
+    <ion-tab-button tab="add-artist" routerLink="/tabs/add-artist" class="selectedItem">
       <ion-icon aria-hidden="true" name="person-add-sharp"></ion-icon>
-      <ion-label style="color: hsl(103, 50%, 50%);">Add Artists</ion-label>
+      <ion-label style="color: hsl(103, 50%, 50%);" class="selectedItem"> Add Artists</ion-label>
     </ion-tab-button>
   </ion-toolbar>
   <ion-toolbar>
@@ -21,7 +21,7 @@
 
 
 <ion-content [fullscreen]="true">
-  <ion-card>
+  <ion-card class="header">
     <ion-card-content>
       <h1>Add Artist Page</h1>
       <p>Please use the form below to get started on adding artist.</p>
@@ -134,7 +134,7 @@
       <ion-item class="ion-margin-bottom">
         <ion-textarea label="Special Notes" labelPlacement="floating" formControlName="specialNotes" placeholder="Any Special Notes"></ion-textarea>
       </ion-item>
-      <ion-item class="ion-margin-bottom">
+      <ion-item class="ion-margin-bottom" class="flexBox">
         <ion-checkbox
         formControlName="isFeaturedArtist"
         slot="start"
@@ -173,7 +173,7 @@
             <ion-card-content>
               <h1>Artist with name {{formData.value.name}} added successfully.</h1>
               <p>You can view your added artists in the display page.</p>
-              <ion-button tab="display-artists" href="/tabs/display-artists" (click)="resetData()" expand="block" class="dialogbtn">Try it</ion-button>
+              <ion-button tab="display-artists" routerLink="/tabs/display-artists" (click)="resetData()" (click)="modal.dismiss()"  expand="block" class="dialogbtn">View</ion-button>
             </ion-card-content>
            </ion-card>
           

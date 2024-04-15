@@ -1,25 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-tab-button tab="add-artist" href="/tabs/add-artist">
+    <ion-tab-button tab="add-artist" routerLink="/tabs/add-artist">
       <ion-icon aria-hidden="true" name="person-add-sharp"></ion-icon>
       <ion-label style="color: hsl(103, 50%, 50%)">Add Artists</ion-label>
     </ion-tab-button>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-tab-button tab="update-artists" href="/tabs/update-artists">
+    <ion-tab-button tab="update-artists" routerLink="/tabs/update-artists" class="selectedItem">
       <ion-icon aria-hidden="true" name="hammer-sharp"></ion-icon>
-      <ion-label style="color: hsl(64, 77%, 60%)">Update Artists</ion-label>
+      <ion-label  class="selectedItem">Update Artists</ion-label>
     </ion-tab-button>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-tab-button tab="delete-artists" href="/tabs/delete-artists">
+    <ion-tab-button tab="delete-artists" routerLink="/tabs/delete-artists">
       <ion-icon aria-hidden="true" name="trash-sharp"></ion-icon>
       <ion-label style="color: hsl(0, 100%, 50%)">Delete Artists</ion-label>
     </ion-tab-button>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-card>
+  <ion-card class="cardContent">
     <ion-card-content>
       <h1>Update Artist Page</h1>
       <p>
@@ -161,15 +161,15 @@
       expand="block"
       [disabled]="!updateFormData.valid"
       class="ion-margin-top"
-      id="open-modal"
+      id="open-modal2"
       >UpdateArtist
     </ion-button>
-    <ion-modal #modal trigger="open-modal">
+    <ion-modal #modal2 trigger="open-modal2">
       <ng-template>
         <ion-content>
           <ion-toolbar>
             <ion-buttons slot="end">
-              <ion-button class="dialogbtn" (click)="modal.dismiss()"
+              <ion-button class="dialogbtn" (click)="modal2.dismiss()" (click)="resetData()"
                 >Close</ion-button
               >
             </ion-buttons>
@@ -177,16 +177,18 @@
           <ion-card color="light">
             <ion-card-content>
               <h1>
-                Artist with name {{updateFormData.value.name}} added
+                Artist with name {{updateFormData.value.updateName}} updated
                 successfully.
               </h1>
-              <p>You can view your added artists in the display page.</p>
+              <p>You can view your updated artist in the display page.</p>
               <ion-button
                 tab="display-artists"
-                href="/tabs/display-artists"
+                routerLink="/tabs/display-artists"
                 expand="block"
                 class="dialogbtn"
-                >Try it</ion-button
+                (click)="resetData()"
+                (click)="modal2.dismiss()"
+                >View</ion-button
               >
             </ion-card-content>
           </ion-card>

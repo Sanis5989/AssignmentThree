@@ -1,11 +1,11 @@
 ion-modal {
-    --height: 30%;
+    --height: 20%;
     --border-radius: 16px;
     --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
   
   ion-modal::part(backdrop) {
-    background: hsl(216, 41%, 42%);
+    background: linear-gradient(to bottom, hsl(261, 51%, 50%), hsl(0, 9%, 65%)); 
     opacity: 1;
   }
   
@@ -14,3 +14,6 @@ ion-modal {
     --color: white;
   }
 
+ion-label{
+  text-align: center;
+}

@@ -73,7 +73,6 @@ export class UpdateArtistsPage implements OnInit {
       )
       .subscribe(
         () => {
-          alert('Artist has been updated in the database.');
           console.log(
             this.updateFormData.value.dob,
             this.updateFormData.value.gender,

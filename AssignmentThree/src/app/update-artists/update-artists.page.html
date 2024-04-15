@@ -6,9 +6,15 @@
     </ion-tab-button>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-tab-button tab="update-artists" href="/tabs/update-artists" class="selectedItem">
+    <ion-tab-button
+      tab="update-artists"
+      href="/tabs/update-artists"
+      class="selectedItem"
+    >
       <ion-icon aria-hidden="true" name="hammer-sharp"></ion-icon>
-      <ion-label style="color: hsl(64, 77%, 60%)" class="selectedItem">Update and Delete Artists</ion-label>
+      <ion-label style="color: hsl(64, 77%, 60%)" class="selectedItem"
+        >Update and Delete Artists</ion-label
+      >
     </ion-tab-button>
   </ion-toolbar>
 </ion-header>
@@ -172,10 +178,10 @@
           <ion-card color="light">
             <ion-card-content>
               <h1>
-                Artist with name {{updateFormData.value.name}} added
+                Artist with name {{updateFormData.value.name}} updated
                 successfully.
               </h1>
-              <p>You can view your added artists in the display page.</p>
+              <p>You can view your updated artists in the display page.</p>
               <ion-button
                 tab="display-artists"
                 href="/tabs/display-artists"
@@ -193,9 +199,7 @@
   <ion-card class="header">
     <ion-card-content>
       <h1>Delete Artist</h1>
-      <p>
-        Please select the artist to be deleted.
-      </p>
+      <p>Please select the artist to be deleted.</p>
     </ion-card-content>
   </ion-card>
   <form [formGroup]="deleteFormData" class="ion-padding">

@@ -29,13 +29,7 @@ const routes: Routes = [
         (m) => m.UpdateArtistsPageModule
       ),
   },
-  {
-    path: 'delete-artists',
-    loadChildren: () =>
-      import('./delete-artists/delete-artists.module').then(
-        (m) => m.DeleteArtistsPageModule
-      ),
-  },
+
   {
     path: 'artist-details-component',
     loadChildren: () =>

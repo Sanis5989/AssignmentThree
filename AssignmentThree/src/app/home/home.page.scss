@@ -5,21 +5,26 @@ h1{
 
 
 .homeCard{
-  text-align: center;
-  background: linear-gradient(to bottom, hsl(261, 51%, 50%), hsl(0, 9%, 65%)); 
+
+  background-color:  hsl(261, 51%, 50%);
   color: white;
+  text-align: center;
 }
 
 .heading{
-  text-align: center;
+  
   color: white;
 }
 
 
 .instructions{
-  background: linear-gradient(to bottom, hsl(266, 53%, 48%), hsl(0, 35%, 20%)); 
+  background-color:  hsl(261, 51%, 50%);
   color: white;
-  text-align: center;
+  
 }
 
 
+html {
+  --ion-dynamic-font: var(--ion-default-dynamic-font);
+  --ion-font-family: 'Comic Sans MS';
+}

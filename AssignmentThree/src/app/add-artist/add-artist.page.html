@@ -151,12 +151,13 @@
       expand="block"
       [disabled]="!formData.valid"
       class="ion-margin-top"
-      id="open-modal"
       color="success"
       >Add Artist
 
       </ion-button>
-      <ion-modal #modal trigger="open-modal">
+
+      <!--Show this modal when artist is added successfully-->
+      <ion-modal #modal [isOpen]="showSuccessModal">
         <ng-template>
           <ion-content>
             <ion-toolbar>
@@ -172,6 +173,25 @@
             </ion-card-content>
            </ion-card>
           
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+
+<!--If any error then show this modal-->
+      <ion-modal #modal2 [isOpen]="showErrorModal">
+        <ng-template>
+          <ion-content>
+            <ion-toolbar>
+              <ion-buttons slot="end">
+                <ion-button class="dialogbtn" (click)="modal2.dismiss()" (click)="resetData()">Close</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+            <ion-card color="light">
+              <ion-card-content>
+                <h1>Error adding artist</h1>
+                <p>An error occurred while trying to add the artist. Please try again later.</p>
+              </ion-card-content>
+            </ion-card>
           </ion-content>
         </ng-template>
       </ion-modal>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Artist } from 'src/Artist';
 import { DataService } from 'src/dataService';
-import { __awaiter } from 'tslib';
+
 
 @Component({
   selector: 'app-add-artist',
@@ -10,15 +10,14 @@ import { __awaiter } from 'tslib';
   styleUrls: ['./add-artist.page.scss'],
 })
 export class AddArtistPage implements OnInit {
-  formData!: FormGroup;
+  formData!: FormGroup;                   
   id: number = 0;
   newArtist!: Artist;
   isFeaturedArtist: boolean = false;
   isRegularArtist: boolean = false;
+  showSuccessModal = false;
+  showErrorModal = false;
 
-  async canDismiss(data?: any, role?: string) {
-    return role !== 'gesture';
-  }
 
   constructor(private dataService: DataService) {}
 
@@ -31,6 +30,7 @@ export class AddArtistPage implements OnInit {
     }
   }
   ngOnInit() {
+    //initializing form group with form controls and validators
     this.formData = new FormGroup({
       name: new FormControl('', Validators.required),
       dob: new FormControl('', Validators.required),
@@ -44,14 +44,16 @@ export class AddArtistPage implements OnInit {
     });
   }
 
+  //function to handle form submission
   onSubmit() {
     console.log(this.formData.value);
     this.addArtist();
   }
 
+  //function to add the artist
   addArtist() {
-    if (this.formData.valid) {
-      this.dataService
+    if (this.formData.valid) { //check if the form is valid
+      this.dataService      //call dataservice method to add artist
         .addArtist(
           this.formData.value.name,
           this.formData.value.dob,
@@ -63,10 +65,14 @@ export class AddArtistPage implements OnInit {
           this.formData.value.isFeaturedArtist
         )
         .subscribe(
-          () => {},
-          (err: any) => {
-            alert('err');
-            console.log(err.message);
+          () => {
+             this.showSuccessModal = true; // show the modal if artist added successfully
+             console.log(this.showSuccessModal);
+          },   
+          (err: any) => { // error callback
+            alert('err');  // show alert for error
+            console.log(err.message);  // log error message to console
+            this.showErrorModal = true;
           }
         );
     } else {
@@ -74,7 +80,7 @@ export class AddArtistPage implements OnInit {
     }
   }
 
-  //reset form data
+  //function to reset form data
   resetData() {
     this.formData.reset();
   }

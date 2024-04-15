@@ -170,17 +170,16 @@
         <ion-content>
           <ion-toolbar>
             <ion-buttons slot="end">
-              <ion-button class="dialogbtn" (click)="modal.dismiss()"
+              <ion-button
+                class="dialogbtn"
+                (click)="modal.dismiss(); resetData();"
                 >Close</ion-button
               >
             </ion-buttons>
           </ion-toolbar>
           <ion-card color="light">
             <ion-card-content>
-              <h1>
-                Artist with name {{this.updateFormData.value.name}} updated
-                successfully.
-              </h1>
+              <h1>Artist updated successfully.</h1>
               <p>You can view your updated artists in the display page.</p>
               <ion-button
                 tab="display-artists"
@@ -238,7 +237,7 @@
               <ion-button
                 expand="block"
                 class="dialogbtn"
-                (click)="deleteArtist(this.deleteFormData.value.deleteName); modal3.dismiss()"
+                (click)="deleteArtist(this.deleteFormData.value.deleteName); modal3.dismiss(); "
                 id="open-modal4"
                 >Yes</ion-button
               >

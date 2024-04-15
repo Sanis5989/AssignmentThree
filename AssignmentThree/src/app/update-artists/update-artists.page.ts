@@ -115,4 +115,9 @@ export class UpdateArtistsPage implements OnInit {
       }
     );
   }
+
+  //function to reset from
+  resetData() {
+    this.updateFormData.reset();
+  }
 }

@@ -1,5 +1,5 @@
 
-  <ion-content  [fullscreen]="true">
+  <ion-content>
     <ion-toolbar>
       <ion-title>Artist Details</ion-title>
       <ion-buttons slot="end">
@@ -7,7 +7,7 @@
       </ion-buttons>
     </ion-toolbar>
     <ion-list *ngIf="artist">
-      <ion-item>
+    
         <ion-label>
           <h2>{{artist.name}}</h2>
           <p>Date of Birth: {{artist.dob | date}}</p>
@@ -18,8 +18,11 @@
           <p>Special Notes: {{artist.special_notes || "-"}}</p>
           <p *ngIf="!artist">Artist details not available.</p> <!--If no artist found-->
         </ion-label>
-      </ion-item>
-      </ion-list>
-      </ion-content>
       
- 
+      </ion-list>
+          </ion-content>
+       
+      
+      
+     
+    

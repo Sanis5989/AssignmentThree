@@ -33,8 +33,8 @@ export class DataService {
   }
 
   //delete fuction to call on api
-  deleteArtist(artistName: string): Observable<ArtistPut> {
-    return this.http.delete<ArtistPut>(this.url + artistName);
+  deleteArtist(artistName: string): Observable<Artist> {
+    return this.http.delete<Artist>(this.url + artistName);
   }
 
   //update artist function to call on api

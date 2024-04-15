@@ -230,7 +230,7 @@
                 id="open-modaal"
                 expand="block"
                 class="dialogbtn"
-                (click)="deleteArtist(this.deleteFormData.value.deleteName)"
+                (click)="deleteArtist(this.deleteFormData.value.deleteName); modal3.dismiss()"
                 >Yes</ion-button
               >
               <ion-button expand="block" class="dialogbtn">No</ion-button>

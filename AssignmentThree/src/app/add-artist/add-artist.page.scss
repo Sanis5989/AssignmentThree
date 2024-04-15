@@ -4,6 +4,7 @@ ion-header{
 
 h1, p {
     text-align: center;
+    color: white;
 }
 
 ion-modal {
@@ -26,4 +27,19 @@ ion-modal {
     background-color: hsl(276, 82%, 49%);
     color: hsl(0, 0%, 100%);
     border-radius: 5px;
+  }
+
+  .header{
+    background: linear-gradient(to bottom, hsl(261, 51%, 50%), hsl(0, 9%, 65%)); 
+  }
+
+  .selectedItem{
+    color: green;
+    font-size: 17px;
+  }
+
+
+  .flexBox{
+    font-size: smaller;
+
   }

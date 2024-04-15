@@ -23,23 +23,28 @@ ion-header{
 }
 
 .header-cell {
-  background-color:hsl(261, 50%, 50%); 
+  background-color:  hsla(130, 84%, 45%, 0.836);
   color: hsl(0, 0%, 100%); 
 }
 
 .data-cell {
-  border-top: 1px solid hsl(261, 50%, 50%); 
+  border-top: 1px solid   hsla(130, 84%, 45%, 0.836);
 }
 
 .data-row:hover {
-  background-color:hsl(261, 50%, 50%); 
+  background-color: hsla(130, 84%, 45%, 0.836);
   color: white;
 }
 
 ion-button{
-  --background:  hsla(256, 64%, 53%, 0.836);
+  --background:  hsla(130, 84%, 45%, 0.836);
   --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
   --color: hsl(0, 0%, 100%);
+}
+
+.selectedItem{
+ color:  hsla(130, 84%, 45%, 0.836);
+ font-size: 17px;
 }
 @media only screen and (max-width: 768px) {
 

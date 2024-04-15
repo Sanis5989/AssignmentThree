@@ -1,8 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-tab-button tab="display-artists" href="/tabs/display-artists">
+    <ion-tab-button tab="display-artists" href="/tabs/display-artists" class="selectedItem">
       <ion-icon aria-hidden="true" name="albums-outline"></ion-icon>
-      <ion-label style="color: hsl(261, 50%, 50%)">Display Artists</ion-label>
+      <ion-label style="color: hsl(261, 50%, 50%)" class="selectedItem">Display Artists</ion-label>
     </ion-tab-button>
   </ion-toolbar>
 
@@ -19,7 +19,7 @@
       href="/tabs/display-featured-artists"
     >
       <ion-icon aria-hidden="true" name="copy-outline"></ion-icon>
-      <ion-label style="color: hsla(175, 84%, 45%, 0.836)"
+      <ion-label style="color:  hsla(130, 84%, 45%, 0.836)"
         >Display Featured Artists</ion-label
       >
     </ion-tab-button>
@@ -46,7 +46,6 @@
         <td class="data-cell">
           <ion-button
             (click)="presentArtistDetails(artist.artist_id)"
-            id="open-modal"
             >Details</ion-button
           >
         </td>

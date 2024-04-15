@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DataService } from 'src/dataService';
-import { Artist } from 'src/Artist';
+import { HelpModalComponentPage } from '../help-modal/help-modal-component.page';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -8,21 +8,15 @@ import { Artist } from 'src/Artist';
   styleUrls: ['tabs.page.scss'],
 })
 export class TabsPage {
-  constructor(private dataService: DataService) {}
+  constructor(private modalCtrl:ModalController) {}
 
-  //creating an empty array of artists
-  allArtists: Artist[] = [];
 
-  //function to get all the artists from api
-  getAllArtists() {
-    this.dataService.getAllArtists().subscribe(
-      (get: any) => {
-        this.allArtists = get;
-      },
-      (err: any) => {
-        alert('err');
-        console.log(err.message);
-      }
-    );
+  async openHelp(){
+    const modal = await this.modalCtrl.create({
+      component: HelpModalComponentPage,
+    })
+    return await modal.present();
   }
+
+
 }

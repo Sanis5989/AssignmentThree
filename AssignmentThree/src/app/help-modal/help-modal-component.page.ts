@@ -1,18 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Artist } from 'src/Artist';
+import { HelpModalComponentPageModule } from './help-modal-component.module';
+
 
 @Component({
   selector: 'help-modal-component',
   templateUrl: './help-modal-component.page.html',
   styleUrls: ['./help-modal-component.page.scss'],
 })
-export class HelpModalComponentPage implements OnInit {
-  @Input()
-  artist!: Artist;
+export class HelpModalComponentPage {
+ 
   constructor(private modalCtrl: ModalController) {}
 
-  ngOnInit() {}
 
   dismissModal() {
     this.modalCtrl.dismiss();

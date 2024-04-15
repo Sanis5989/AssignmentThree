@@ -69,7 +69,5 @@ export class DisplayAsrtistsPage implements OnInit {
     } else {
       console.error('Artist not found:', artistId); // Handle case where artist is missing
     }
-
-    console.log(this.artists);
   }
 }

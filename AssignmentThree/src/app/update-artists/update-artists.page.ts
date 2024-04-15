@@ -12,6 +12,10 @@ import { DataService } from 'src/dataService';
 })
 export class UpdateArtistsPage implements OnInit {
   constructor(private dataService: DataService) {}
+
+  //boolean to check deleted
+  successDelete: boolean = false;
+
   //creating an emptyarray of artists
   artists: Artist[] = [];
   updateFormData!: FormGroup;
@@ -104,6 +108,7 @@ export class UpdateArtistsPage implements OnInit {
     this.dataService.deleteArtist(name).subscribe(
       (d: any) => {
         console.log('deleted');
+        this.successDelete = true;
       },
       (err: any) => {
         console.log(err);

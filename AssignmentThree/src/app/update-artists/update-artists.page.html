@@ -236,10 +236,10 @@
                 {{deleteFormData.value.deleteName}}
               </h1>
               <ion-button
-                id="open-modaal"
                 expand="block"
                 class="dialogbtn"
                 (click)="deleteArtist(this.deleteFormData.value.deleteName); modal3.dismiss()"
+                id="open-modal4"
                 >Yes</ion-button
               >
               <ion-button expand="block" class="dialogbtn">No</ion-button>
@@ -248,19 +248,20 @@
         </ion-content>
       </ng-template>
     </ion-modal>
-    <ion-modal #modal4 trigger="open-modaal">
+    <ion-modal #modal2 [isOpen]="successDelete">
       <ng-template>
         <ion-content>
           <ion-toolbar>
             <ion-buttons slot="end">
-              <ion-button class="dialogbtn" (click)="modal4.dismiss()"
+              <ion-button class="dialogbtn" (click)="modal2.dismiss()"
                 >Close</ion-button
               >
             </ion-buttons>
           </ion-toolbar>
           <ion-card color="light">
             <ion-card-content>
-              <h1>successfully deleted {{deleteFormData.value.deleteName}}</h1>
+              <h1>Sucessfully delete</h1>
+              <p>Deleted artist {{this.deleteFormData.value.deleteName}}</p>
             </ion-card-content>
           </ion-card>
         </ion-content>

@@ -16,7 +16,6 @@ export class UpdateArtistsPage implements OnInit {
   artists: Artist[] = [];
   updateFormData!: FormGroup;
   deleteFormData!: FormGroup;
-  deleteName!: string;
   //initializing an new artist object to hold update details
 
   ngOnInit() {

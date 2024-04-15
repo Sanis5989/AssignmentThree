@@ -197,7 +197,7 @@
   <form
     [formGroup]="deleteFormData"
     class="ion-padding"
-    (ngSubmit)="deleteArtist(deleteName)"
+    (ngSubmit)="deleteArtist(this.deleteFormData.value.deleteName)"
   >
     <ion-item class="ion-margin-bottom">
       <ion-select placeholder="Select an Artist" formControlName="deleteName">

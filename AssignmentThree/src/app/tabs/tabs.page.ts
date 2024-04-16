@@ -11,6 +11,7 @@ export class TabsPage {
   constructor(private modalCtrl:ModalController) {}
 
 
+//create a help modal using modalcontroller and 
   async openHelp(){
     const modal = await this.modalCtrl.create({
       component: HelpModalComponentPage,

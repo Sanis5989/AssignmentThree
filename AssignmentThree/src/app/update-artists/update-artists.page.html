@@ -239,6 +239,7 @@
                 class="dialogbtn"
                 (click)="deleteArtist(this.deleteFormData.value.deleteName); modal3.dismiss(); "
                 id="open-modal4"
+
                 >Yes</ion-button
               >
               <ion-button expand="block" class="dialogbtn">No</ion-button>
@@ -252,7 +253,7 @@
         <ion-content>
           <ion-toolbar>
             <ion-buttons slot="end">
-              <ion-button class="dialogbtn" (click)="modal2.dismiss()"
+              <ion-button class="dialogbtn" (click)="modal2.dismiss(); resetData();"
                 >Close</ion-button
               >
             </ion-buttons>

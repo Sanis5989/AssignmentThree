@@ -10,7 +10,7 @@ import { ArtistDetailsComponentPage } from '../artist-details-component/artist-d
   styleUrls: ['./display-asrtists.page.scss'],
 })
 export class DisplayAsrtistsPage implements OnInit {
-  artists: Artist[] = [];
+  artists: Artist[] = []; // initislized empty artist array
   searchTerm: string = '';
 
   constructor(

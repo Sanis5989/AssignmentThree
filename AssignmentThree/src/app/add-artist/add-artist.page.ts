@@ -67,7 +67,7 @@ export class AddArtistPage implements OnInit {
         .subscribe(
           () => {
              this.showSuccessModal = true; // show the modal if artist added successfully
-             console.log(this.showSuccessModal);
+             console.log(this.showSuccessModal); //success callback
           },   
           (err: any) => { // error callback
             alert('err');  // show alert for error

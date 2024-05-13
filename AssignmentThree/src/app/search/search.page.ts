@@ -20,6 +20,7 @@ export class SearchPage implements OnInit {
 
   ngOnInit() {}
 
+  //search the artist based on the name.
   searchArtist(name: string) {
     this.dataService.searchArtist(name).subscribe(
       (d: any) => {

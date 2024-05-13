@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Artist } from './Artist';
-import { ArtistPut } from './ArtistPut';
+import { ArtistPut } from './ArtistPut'; //update artist class
 
 // Enums for artist class
 enum Gender {
